@@ -1,4 +1,4 @@
-package br.com.aliexpress.steps;
+package br.com.aliexpress.run;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;

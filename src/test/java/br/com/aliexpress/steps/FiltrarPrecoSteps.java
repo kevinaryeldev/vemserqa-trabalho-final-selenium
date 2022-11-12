@@ -11,7 +11,7 @@ public class FiltrarPrecoSteps {
 
     @Dado("que estou na página do Aliexpress")
     public void abrirPaginaProduto() {
-        productsPage.browserUp("https://pt.aliexpress.com/wholesale?trafficChannel=main&d=y&CatId=0&SearchText=tablet&ltype=wholesale&SortType=default&minPrice=50&maxPrice=100&page=1");
+        productsPage.irParaPagina("https://pt.aliexpress.com/wholesale?trafficChannel=main&d=y&CatId=0&SearchText=tablet&ltype=wholesale&SortType=default&minPrice=50&maxPrice=100&page=1");
     }
 
     String precoMin = "50";
@@ -40,13 +40,8 @@ public class FiltrarPrecoSteps {
     public void digitarPrecoMaximo() {
         productsPage.digitarPrecoMaximo("150");
     }
-    @Quando("clico OK")
-    public void clicarBtnOk(){
-        productsPage.clicarOkBtn();
-    }
     @Entao("devo ver produtos com o valor inferior ao digitado")
     public void checarPrecoMaximo() {
-
     }
 
 }

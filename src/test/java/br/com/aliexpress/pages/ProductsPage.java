@@ -4,6 +4,13 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 public class ProductsPage extends BasePage{
+
+    public void irParaPagina(String url){
+        driver.get(url);
+        //driver.navigate().to(url);
+    }
+
+
     private static final By precoMinCampo =
             By.cssSelector("#root > div.glosearch-wrap > div > div.main-content > div.right-menu > div > div.top-container > div.top-refine > div.first > span.price-input.popmode.ltr > span.next-input.next-small.min-price > input");
 

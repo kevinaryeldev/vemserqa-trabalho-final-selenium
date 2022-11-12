@@ -2,6 +2,7 @@ package br.com.aliexpress.pages;
 
 import br.com.aliexpress.utils.Elements;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
 
 public class BasePage extends Elements {
 
@@ -19,5 +20,26 @@ public class BasePage extends Elements {
         waitElement(by);
         return element(by).getText();
     }
+
+    public static void moveToElement(By by){
+        Actions action = new Actions(driver);
+        action.moveToElement(element(by));
+        action.build().perform();
+    }
+
+    public static void moveToElementAndClick(By by){
+        Actions action = new Actions(driver);
+        action.moveToElement(element(by));
+        action.click().build().perform();
+    }
+
+    public static void clearElement(By by){
+        element(by).clear();
+    }
+
+    public static boolean checkElementDisplayStatus(By by){
+        return element(by).isDisplayed();
+    }
+
 }
 

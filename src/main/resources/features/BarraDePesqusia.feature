@@ -1,9 +1,9 @@
 #language:pt
 
 
-#  @Test
+@Test
 Funcionalidade: Testes da barra de pesquisa
-#  Contexto:
+Contexto: Usuário deve poder pesquisar um item específico
 @whip
 Cenario: Pesquisar item em todas as categorias
   Dado que estou na página do Aliexpress

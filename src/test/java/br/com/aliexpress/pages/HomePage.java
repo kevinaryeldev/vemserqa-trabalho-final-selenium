@@ -27,5 +27,4 @@ public class HomePage extends BasePage{
     public boolean retornarChecarLogin(){
         return checkElementDisplayStatus(welcomeText);
     }
-
 }

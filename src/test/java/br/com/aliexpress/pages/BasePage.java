@@ -21,7 +21,6 @@ public class BasePage extends Elements {
         return element(by).getText();
     }
 
-<<<<<<< HEAD
     public static void moveToElement(By by){
         Actions action = new Actions(driver);
         action.moveToElement(element(by));
@@ -42,11 +41,5 @@ public class BasePage extends Elements {
         return element(by).isDisplayed();
     }
 
-=======
-    public static void mouseHover(By by) {
-        Actions action = new Actions(driver);
-        action.moveToElement(element(by)).perform();
-    }
->>>>>>> develop
 }
 

@@ -2,7 +2,9 @@
 
   @Test
   Funcionalidade: Login
+
     Contexto: O usuário deve fazer login após informar email e senha válidos
+
       @whip
       Cenario: Validar modal de login com campos vazios
       Dado que passe o mouse sobre o icone de conta
@@ -46,3 +48,5 @@
         E preencho senha válida
         Quando clico em iniciar sessao
         Entao devo estar logado
+
+

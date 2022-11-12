@@ -41,5 +41,11 @@ public class BasePage extends Elements {
         return element(by).isDisplayed();
     }
 
+    public static String getElementValue(By by){
+        return element(by).getAttribute("value");
+    }
+    public static String getPageUrl(){
+        return driver.getCurrentUrl();
+    }
 }
 

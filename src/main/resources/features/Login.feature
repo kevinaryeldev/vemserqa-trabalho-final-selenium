@@ -2,7 +2,7 @@
 
 
 #  @Test
-#   Funcionalidade:
+#   Funcionalidade: Testes de login
 #  Contexto:
 #@whip
 #Cenario:

@@ -21,9 +21,25 @@ public class BasePage extends Elements {
         return element(by).getText();
     }
 
-    public static void mouseHover(By by) {
+    public static void moveToElement(By by){
         Actions action = new Actions(driver);
-        action.moveToElement(element(by)).perform();
+        action.moveToElement(element(by));
+        action.build().perform();
     }
+
+    public static void moveToElementAndClick(By by){
+        Actions action = new Actions(driver);
+        action.moveToElement(element(by));
+        action.click().build().perform();
+    }
+
+    public static void clearElement(By by){
+        element(by).clear();
+    }
+
+    public static boolean checkElementDisplayStatus(By by){
+        return element(by).isDisplayed();
+    }
+
 }
 

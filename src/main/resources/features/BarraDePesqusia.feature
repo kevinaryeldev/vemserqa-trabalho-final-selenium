@@ -1,6 +1,5 @@
 ##language:pt
-#
-#
+
 #@Test
 #Funcionalidade: Testes da barra de pesquisa
 #Contexto: Usuário deve poder pesquisar um item específico
@@ -10,7 +9,7 @@
 #  E que digito no campo pesquisa
 #  Quando clico no botão de lupa
 #  Entao devo ser redirecionado para a página contendo os itens filtrados
-#
+
 #@whip
 #Cenario: Pesquisar item em categoria específica
 #  Dado que estou na página do Aliexpress

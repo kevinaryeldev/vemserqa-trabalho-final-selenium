@@ -1,16 +1,16 @@
-##language:pt
+#language:pt
 #
 #
-##  @Test
-#Funcionalidade: Testes no carrinho
+#  @Test
+Funcionalidade: Testes no carrinho
 ##  Contexto:
-#@whip
-#Cenario: Testar listar os itens do carrinho
-#  Dado que estou na página do Aliexpress
-#  E que adiciono itens ao carrinho
-#  Quando clico no botão carrinho
-#  Entao devo ver os itens adicionados
-#
+@whip
+Cenario: Testar listar os itens do carrinho
+  Dado que estou na página do produto
+  E que adiciono itens ao carrinho
+  Quando clico no botão carrinho
+  Entao devo ver os itens adicionados
+
 #@whip
 #Cenario: Testar listar carrinho vazio
 #  Dado que estou na página do aliexpress

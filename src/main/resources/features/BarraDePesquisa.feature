@@ -25,7 +25,7 @@ Funcionalidade: Barra de Pesquisa
       E abro o dropdown de categoria
       E seleciono uma categoria especifica
       Quando clico no botao de pesquisar
-      Entao devo estar na pagina de produtos filtrados pela pesquisa na categoria pesquisada
+      Entao devo estar na pagina de produtos filtrados pela categoria e pela pesquisa
 
     @whip
     Cenario: Validar pesquisa em categoria especifica com texto invalido
@@ -33,5 +33,5 @@ Funcionalidade: Barra de Pesquisa
       E abro o dropdown de categoria
       E seleciono uma categoria especifica
       Quando clico no botao de pesquisar
-      Entao devo estar na pagina de produtos filtrados pela pesquisa na categoria pesquisada
+      Entao devo estar na pagina de produtos filtrados pela categoria e pela pesquisa
       E nenhum produto e mostrado

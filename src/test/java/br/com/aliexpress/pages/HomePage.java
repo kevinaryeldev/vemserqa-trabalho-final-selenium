@@ -18,7 +18,7 @@ public class HomePage extends BasePage{
             By.id("search-key");
 
     private static final By dropdownPesquisa =
-            By.className("search-cate");
+            By.cssSelector("#form-searchbar > div.searchbar-operate-box");
     private static final By btnPesquisa =
             By.className("search-button");
 
@@ -53,7 +53,7 @@ public class HomePage extends BasePage{
     }
     @Step
     public void abrirDropdownPesquisa(){
-        click(dropdownPesquisa);
+        moveToElementAndClick(dropdownPesquisa);
     }
 
     @Step

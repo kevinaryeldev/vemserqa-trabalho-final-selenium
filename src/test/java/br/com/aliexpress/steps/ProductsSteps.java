@@ -12,7 +12,7 @@ public class ProductsSteps {
     public void checarEstarNaPagina(){
         Assert.assertTrue(products.retornarUrl().contains("SearchText"));
     }
-    @Entao("devo estar na pagina de produtos filtrados pela pesquisa na categoria pesquisada")
+    @Entao("devo estar na pagina de produtos filtrados pela categoria e pela pesquisa")
     public void checarEstarNaPaginaComCategoria(){
         Assert.assertTrue(products.retornarUrl().contains("catId"));
     }

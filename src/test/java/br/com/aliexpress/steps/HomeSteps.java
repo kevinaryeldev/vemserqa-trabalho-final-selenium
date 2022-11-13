@@ -33,7 +33,7 @@ public class HomeSteps {
         homePage.selecionarDropdownItemRetornarCatId(
                 faker
                     .number()
-                    .numberBetween(2,20)
+                    .numberBetween(2,10)
         );
     }
 

@@ -1,8 +1,8 @@
 package br.com.aliexpress.steps;
 
 import br.com.aliexpress.pages.ProductsPage;
-import cucumber.api.java.gl.Dado;
-import cucumber.api.java.gl.E;
+import cucumber.api.java.pt.Dado;
+import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 

@@ -3,11 +3,13 @@ package br.com.aliexpress.pages;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
+import java.util.concurrent.TimeUnit;
+
 public class ProductsPage extends BasePage{
 
     public void irParaPagina(String url){
-        driver.get(url);
-        //driver.navigate().to(url);
+//        driver.get(url);
+        driver.navigate().to(url);
     }
 
 
@@ -25,8 +27,9 @@ public class ProductsPage extends BasePage{
     private static final By btnAdicionarCarrinho =
             By.cssSelector("#root > div > div.product-main > div > div.product-info > div.product-action > span.addcart-wrap > button");
 
-    private static final By botaoCarrinho =
-            By.cssSelector("#header > div > div.hm-right > div > div > a > i");
+    private static final By botaoVerCarrinho =
+            By.cssSelector("body > div.next-overlay-wrapper.opened > div.next-dialog.next-closeable.next-overlay-inner > div > div > div > div.addcart-result-action > a");
+
 
 
 
@@ -51,12 +54,16 @@ public class ProductsPage extends BasePage{
 
     @Step
     public void setBtnAdicionarCarrinho() {
+
         click(btnAdicionarCarrinho);
     }
     @Step
     public void clicarBotaoCarrinho(){
-        click(botaoCarrinho);
+        click(botaoVerCarrinho);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
+
+
 
 
 

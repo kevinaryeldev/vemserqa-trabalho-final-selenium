@@ -19,6 +19,11 @@ public class HomeSteps {
     public void digitarTexto(){
         homePage.preencherCampoPesquisa(faker.color().name());
     }
+    @Dado ("que seguro o mouse em cima de qualquer link da barra de categoria")
+    public void hoverCategoriaListaLateral(){
+        homePage.fecharPropagandaScrollar();
+        homePage.hoverCategoriaListaLateral(faker.number().numberBetween(1,13));
+    }
     @E("clico no botao de entrar")
     public void clickBtnAbrirModalLogin(){
         homePage.clicarBotaoAbrirModalLogin();
@@ -36,16 +41,25 @@ public class HomeSteps {
                     .numberBetween(2,10)
         );
     }
-
+    @Quando("clico em qualquer link da barra de categorias")
+    public void selecionarCategoriaBarraLateral(){
+        homePage.fecharPropagandaScrollar();
+        homePage.clicarCategoriaListaLateral(faker.number().numberBetween(1,13));
+    }
     @Quando("clico no botao de pesquisar")
     public void fazerPesquisa(){
         homePage.pesquisar();
     }
-
+    @Quando ("clico em qualquer subcategoria do menu")
+    public void clicarSubcategoria(){
+        homePage.clicarSubcategoriaBarraLateral();
+    }
+    @Quando ("clico em qualquer segunda subcategoria do menu")
+    public void clicarSegundaSubcategoria(){
+        homePage.clicarSegundaSubcategoriaListaLateral();
+    }
     @Entao("devo estar logado")
     public void checarLogin(){
         homePage.retornarChecarLogin();
     }
-
-
 }

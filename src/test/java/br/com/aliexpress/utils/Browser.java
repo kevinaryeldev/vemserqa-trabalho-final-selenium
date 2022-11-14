@@ -20,6 +20,7 @@ public class Browser {
     }
 
     public void browserDown(){
+        driver.manage().deleteAllCookies();
         driver.quit();
     }
 }

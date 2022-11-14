@@ -45,10 +45,16 @@ public class BasePage extends Elements {
     }
 
     public static boolean checkElementDisplayStatus(By by){
+        waitElement(by);
         return element(by).isDisplayed();
     }
 
+    public static boolean checkElementIsEnable(By by){
+        waitElement(by);
+        return element(by).isEnabled();
+    }
     public static String getElementValue(By by){
+        waitElement(by);
         return element(by).getAttribute("value");
     }
     public static String getPageUrl(){

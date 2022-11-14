@@ -2,21 +2,14 @@ package br.com.aliexpress.steps;
 
 import br.com.aliexpress.pages.CarrinhoPage;
 import br.com.aliexpress.pages.ProductsPage;
-import cucumber.api.java.ca.Quan;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 import org.junit.Assert;
-import org.openqa.selenium.NoSuchElementException;
-
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
-
 import static br.com.aliexpress.utils.Browser.driver;
-import static br.com.aliexpress.utils.Browser.wait;
-import static org.hamcrest.MatcherAssert.assertThat;
-
 
 public class CarrinhoSteps {
     ProductsPage productsPage = new ProductsPage();
@@ -58,7 +51,6 @@ public class CarrinhoSteps {
         catch (Exception NoSuchElementException){}
     }
     @Entao("devo ver os itens adicionados")
-
     public boolean verItemListado(){
         driver.manage().timeouts().implicitlyWait(2000, TimeUnit.MILLISECONDS);
         if (!Objects.equals(carrinhoPage.verPrimeiroItemListado(), "")){
@@ -89,11 +81,9 @@ public class CarrinhoSteps {
         driver.manage().timeouts().implicitlyWait(2000, TimeUnit.MILLISECONDS);
     }
     @Entao("devo ver a quantidade de itens aumentar em 1")
-    public void verQuantidadeItens() {
-        driver.manage().timeouts().implicitlyWait(2000, TimeUnit.MILLISECONDS);
+    public void verQuantidadeItens() throws InterruptedException {
         String quantidade = carrinhoPage.checarQuantidadeItens();
         Assert.assertEquals(quantidade, "2");
-
     }
     @E("clico no botão REMOVER")
     public void removerItemDoCarrinho(){

@@ -11,6 +11,8 @@ public class HomePage extends BasePage{
     private static final By btnSignin =
             By.className("sign-btn");
 
+    private static final By btnRegistro =
+            By.className("join-btn");
     private static final By welcomeText =
             By.className("welcome-name");
 
@@ -53,7 +55,12 @@ public class HomePage extends BasePage{
         moveToElementAndClick(btnSignin);
     }
     @Step
+    public void clicarBotaoAbrirModalRegistro(){
+        moveToElementAndClick(btnRegistro);
+    }
+    @Step
     public boolean retornarChecarLogin(){
+        hoverBotaoModalAccount();
         return checkElementDisplayStatus(welcomeText);
     }
     @Step
@@ -64,7 +71,7 @@ public class HomePage extends BasePage{
     public void abrirDropdownPesquisa(){
         moveToElementAndClick(dropdownPesquisa);
     }
-
+    @Step
     public void clicarSubcategoriaBarraLateral(){
         moveToElementAndClick(subCategoria);
     }

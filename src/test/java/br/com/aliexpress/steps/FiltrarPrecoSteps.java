@@ -1,22 +1,14 @@
 package br.com.aliexpress.steps;
-
-import br.com.aliexpress.pages.ProductsPage;
 import br.com.aliexpress.pages.SearchPage;
-import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
-import org.openqa.selenium.By;
-
 import static java.lang.Integer.parseInt;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class FiltrarPrecoSteps {
-    ProductsPage productsPage = new ProductsPage();
     SearchPage searchPage = new SearchPage();
-
-    @E("que digito um valor mínimo no campo Preço mínimo")
+    @E("que digito um valor no campo preco minimo")
     public void digitarPrecoMinimo(){
         searchPage.inserirValorMinimo("50");
     }
@@ -25,26 +17,27 @@ public class FiltrarPrecoSteps {
         searchPage.clicarBotaoOkCampoPreco();
     }
     @Entao("devo ver produtos com o valor superior ao digitado")
-    public void checarValorPrimeiroItem(){
+    public void checarValorPrimeiroItem() throws InterruptedException {
+        Thread.sleep(5000);
         String valorLido = searchPage.valorPrimeiroItem();
         int valorInt = parseInt(valorLido);
-       assertTrue(valorInt > 50);
+        System.out.println(valorInt);
+        assertTrue(valorInt > 50);
     }
-
-
-    @E("que digito um valor máximo no campo Preço máximo")
+    @E("que digito um valor no campo preco maximo")
     public void digitarPrecoMaximo(){
         searchPage.inserirValorMaximo("150");
     }
     @Entao("devo ver produtos com o valor inferior ao digitado")
-    public void verValorDoPrimeiroItem(){
+    public void verValorDoPrimeiroItem() throws InterruptedException {
+        Thread.sleep(5000);
         String valorLido = searchPage.valorPrimeiroItem();
         int valorInt = parseInt(valorLido);
         assertTrue(valorInt < 150);
     }
-
-    @Entao("devo ver produtos com o valor superior ao mínimo e inferior ao máximo")
+    @Entao("devo ver produtos com o valor superior ao minimo e inferior ao maximo")
     public void verValorDentroDoFiltro() {
+        Thread.sleep(5000);
         String valorLido = searchPage.valorPrimeiroItem();
         int valorInt = parseInt(valorLido);
         if ((valorInt > 50) && (valorInt < 150)) {
@@ -53,15 +46,16 @@ public class FiltrarPrecoSteps {
             assertTrue(false);
         }
     }
-
-    @Entao("que digito um valor máximo no campo Preço máximo que seja inferior ao mínimo")
-        public void valorMaximoIncorreto(){
+    @E("que digito um valor menor que o anterior no campo preco maximo")
+    public void valorMaximoIncorreto(){
         searchPage.inserirValorMaximo("40");
-        String valorLido = searchPage.valorPrimeiroItem();
-        int valorInt = parseInt(valorLido);
-        assertTrue(valorInt < 150);
-
-        }
-
-
+    }
+    @Entao("os valores devem se ajustar corretamente")
+    public void checarValoresAjuste() throws InterruptedException {
+        Thread.sleep(5000);
+        String valMin = searchPage.retornarValorMinimoFiltro();
+        String valMax = searchPage.retornarValorMaximoFiltro();
+        assertTrue(valMin.contains("40"));
+        assertTrue(valMax.contains("50"));
+    }
 }

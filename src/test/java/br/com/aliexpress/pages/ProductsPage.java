@@ -29,9 +29,6 @@ public class ProductsPage extends BasePage{
     private static final By botaoVerCarrinho =
             By.cssSelector("body > div.next-overlay-wrapper.opened > div.next-dialog.next-closeable.next-overlay-inner > div > div > div > div.addcart-result-action > a");
 
-
-
-
     @Step
     public String preco(){
         return preco();
@@ -47,9 +44,5 @@ public class ProductsPage extends BasePage{
         click(botaoVerCarrinho);
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     }
-
-
-
-
 
 }

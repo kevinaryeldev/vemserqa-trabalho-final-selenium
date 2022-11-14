@@ -1,5 +1,6 @@
 package br.com.aliexpress.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 public class ModalLoginPage extends BasePage{
@@ -12,7 +13,7 @@ public class ModalLoginPage extends BasePage{
             By.className("login-submit");
 
     private static final By alertErrorLogin =
-            By.className("cosmos-alert-error");
+            By.cssSelector("div.fm-login>.cosmos-alert-error");
 
     public void limparCampoLoginEmail(){
         click(inputLoginEmail);
@@ -23,22 +24,25 @@ public class ModalLoginPage extends BasePage{
         clearElement(inputLoginSenha);
     }
 
+    @Step
     public void escreverCampoLoginEmail(String email){
         limparCampoLoginEmail();
         sendKeys(inputLoginEmail,email);
     }
-
+    @Step
     public void escreverCampoLoginSenha(String senha){
-        limparCampoLoginEmail();
+        limparCampoLoginSenha();
         sendKeys(inputLoginSenha,senha);
     }
-
+    @Step
     public boolean statusEnlabledBtnSubmitLogin(){
         return element(btnSubmitLogin).isEnabled();
     }
+    @Step
     public void clicarBtnSubmitLogin(){
         click(btnSubmitLogin);
     }
+    @Step
     public boolean statusMensagemErro(){
         return checkElementDisplayStatus(alertErrorLogin);
     }

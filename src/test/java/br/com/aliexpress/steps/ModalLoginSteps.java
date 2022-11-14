@@ -33,10 +33,8 @@ public class ModalLoginSteps {
                 .password(9,14,true));
     }
 
-    @Quando("limpo os campos de email e senha")
-    public void limparCampos(){
-        modalLogin.limparCampoLoginEmail();
-        modalLogin.limparCampoLoginSenha();
+    @Quando ("nao preencho mais nada")
+    public void naoPreencher(){
     }
 
     @Quando("clico em iniciar sessao")
@@ -45,12 +43,14 @@ public class ModalLoginSteps {
     }
 
     @Entao("o botao de iniciar sessao esta desabilitado")
-    public void checarBtnLogin(){
+    public void checarBtnLogin() throws InterruptedException {
+        Thread.sleep(2000);
         Assert.assertFalse(modalLogin.statusEnlabledBtnSubmitLogin());
     }
 
     @Entao("devo receber uma mensagem de erro")
-    public void assertErrorMessageLogin(){
+    public void assertErrorMessageLogin() throws InterruptedException {
+        Thread.sleep(2000);
         Assert.assertTrue(modalLogin.statusMensagemErro());
     }
 }

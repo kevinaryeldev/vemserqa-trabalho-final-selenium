@@ -17,7 +17,13 @@ public class HomeSteps {
     }
     @Dado("que eu digite um texto valido no campo de pesquisa")
     public void digitarTexto(){
+        homePage.verificarFecharModalNewsletter();
         homePage.preencherCampoPesquisa(faker.color().name());
+    }
+    @Dado ("que eu digite um texto invalido no campo de pesquisa")
+    public void digitarTextoInvalido(){
+        homePage.verificarFecharModalNewsletter();
+        homePage.preencherCampoPesquisa("jasljfasjdnhawhdioqjiqojwioqwjiojakjkjklajkljsioaj");
     }
     @Dado ("que seguro o mouse em cima de qualquer link da barra de categoria")
     public void hoverCategoriaListaLateral(){
@@ -28,9 +34,12 @@ public class HomeSteps {
     public void clickBtnAbrirModalLogin(){
         homePage.clicarBotaoAbrirModalLogin();
     }
+    @E ("clico no botao de registrar")
+    public void clickBtnAbrirModalRegistro(){
+        homePage.clicarBotaoAbrirModalRegistro();
+    }
     @E("abro o dropdown de categoria")
     public void abrirDropdowCategoriasPesquisa(){
-        homePage.verificarFecharModalNewsletter();
         homePage.abrirDropdownPesquisa();
     }
     @E("seleciono uma categoria especifica")
@@ -59,7 +68,8 @@ public class HomeSteps {
         homePage.clicarSegundaSubcategoriaListaLateral();
     }
     @Entao("devo estar logado")
-    public void checarLogin(){
+    public void checarLogin() throws InterruptedException {
+        Thread.sleep(2000);
         homePage.retornarChecarLogin();
     }
 }

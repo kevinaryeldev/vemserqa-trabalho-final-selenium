@@ -1,9 +1,9 @@
 #language:pt
 
 
-#  @Test
+  @Test
   Funcionalidade: Teste de categorias
-  Contexto:
+  Contexto: O usuário deve consegir navegar pelas categorias de produto selecionando-as na barra lateral
     @whip
     Cenario: Testar listar produtos de uma categoria
       Quando clico em qualquer link da barra de categorias
@@ -20,10 +20,4 @@
      Dado que seguro o mouse em cima de qualquer link da barra de categoria
      Quando clico em qualquer segunda subcategoria do menu
      Entao devo ser redirecionado para a página da segunda subcategoria escolhida
-
-   @whip
-   Cenario: Testar navegar pelas subcategorias pela página da categoria
-     Dado que seguro o mouse em cima de qualquer link da barra de categoria
-     Quando clico em qualquer subcategoria dentro da página de categorias
-     Entao devo ser redirecionado a subcategoria escolhida
 

@@ -13,33 +13,27 @@ public class SearchPage extends BasePage{
     }
     private static final By campoPreco =
             By.cssSelector("#root > div.glosearch-wrap > div > div.main-content > div.right-menu > div > div.top-container > div.top-refine > div.first > span.price-input.ltr");
-
-
     private static final By valorMinimo =
-            By.cssSelector("#root > div.glosearch-wrap > div > div.main-content > div.right-menu > div > div.top-container > div.top-refine > div.first > span.price-input.popmode.ltr > span.next-input.next-small.min-price > input");
+            By.cssSelector(".min-price>input");
 
     private static final By valorMaximo =
-            By.cssSelector("#root > div.glosearch-wrap > div > div.main-content > div.right-menu > div > div.top-container > div.top-refine > div.first > span.price-input.ltr > span:nth-child(3) > input");
-
-
+            By.cssSelector(".price-input>span:nth-child(3)>input");
     private static final By precoPrimeiroItem =
-            By.xpath("/html/body/div[3]/div[1]/div/div[2]/div[2]/div/div[2]/a[1]/div[2]/div[3]/span[2]");
-
-
+            By.cssSelector(".product-container>div:nth-child(2)>a>div:nth-child(2)>div:nth-child(2)>span:nth-child(2)");
     private static final By botaoOkPreco =
-            By.cssSelector("span.price-input.popmode.ltr > a");
+            By.cssSelector("a.ui-button");
 
     @Step
     public void inserirValorMinimo(String valor) {
-        click(campoPreco);
+//        click(campoPreco);
         click(valorMinimo);
         sendKeys(valorMinimo, valor);
     }
     @Step
     public void inserirValorMaximo(String valor) {
-        click(campoPreco);
-        click(valorMinimo);
-        sendKeys(valorMinimo, valor);
+//        click(campoPreco);
+        click(valorMaximo);
+        sendKeys(valorMaximo, valor);
     }
 
     @Step
@@ -50,8 +44,15 @@ public class SearchPage extends BasePage{
     @Step
     public String valorPrimeiroItem(){
         driver.manage().timeouts().implicitlyWait(4000, TimeUnit.MILLISECONDS);
-        return getElementValue(precoPrimeiroItem);
+        return getText(precoPrimeiroItem);
     }
 
-
+    @Step
+    public String retornarValorMinimoFiltro(){
+        return getElementValue(valorMinimo);
+    }
+    @Step
+    public String retornarValorMaximoFiltro(){
+        return getElementValue(valorMaximo);
+    }
 }

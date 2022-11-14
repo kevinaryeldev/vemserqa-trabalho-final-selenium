@@ -50,8 +50,8 @@ public class CarrinhoPage extends BasePage{
     }
 
     @Step
-    public String checarQuantidadeItens() {
-        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+    public String checarQuantidadeItens() throws InterruptedException {
+        Thread.sleep(3000);
         return element(quantidadeItens).getAttribute("value");
     }
 

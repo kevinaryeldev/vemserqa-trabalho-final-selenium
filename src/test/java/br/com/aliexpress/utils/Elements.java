@@ -1,2 +1,20 @@
-package br.com.aliexpress.utils;public class Elements {
+package br.com.aliexpress.utils;
+
+
+import br.com.aliexpress.steps.BaseSteps;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+public class Elements extends BaseSteps {
+
+    public static WebElement element(By element){
+        return driver.findElement(element);
+    }
+
+    public static void waitElement(By element){
+        wait.until(ExpectedConditions.presenceOfElementLocated(element));
+    }
+
+
 }
